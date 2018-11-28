@@ -31,14 +31,20 @@ public class linkcount {
            footer.findElements(By.tagName("a")).get(i).sendKeys(clickonlinktab);
 
         }
-    //Switch to multiple windows and get titles of all of them
+        //switching multiple windows with foreach loop and getting the Title
         Set<String> windows=driver.getWindowHandles();
-        Iterator<String>it= windows.iterator();
-
-        while (it.hasNext()){
-           driver.switchTo().window(it.next());
+        for (String window : windows) {
+            driver.switchTo().window(window);
             System.out.println(driver.getTitle());
         }
+
+        //Switch to multiple windows with while loop and get titles of all of them
+//        Set<String> windows=driver.getWindowHandles();
+//        Iterator<String>it= windows.iterator();
+//        while (it.hasNext()){
+//            driver.switchTo().window(it.next());
+//            System.out.println(driver.getTitle());
+//        }
         driver.quit();
 
 
